@@ -1,0 +1,104 @@
+.table
+  width: 100%
+  table-layout: fixed
+  box-shadow: 0px 4px 8px 2px rgba(162, 162, 162, 0.55)
+  &__row
+    font-weight: 300
+    &--top, &--bottom
+      font-weight: 400
+
+  &__ceil
+    padding: 15px 20px
+    vertical-align: middle
+    word-break: break-word
+
+  &__field
+    border: 0
+    width: 100%
+    background-color: #fff
+    font-size: 16px
+    padding: 10px
+    border: 1px solid #fff
+    &--min
+      width: 40px
+      text-align: center
+
+  &__control
+    &::before
+      content: ''
+      display: inline-block
+      background-repeat: no-repeat
+      background-size: cover
+      cursor: pointer
+    &--edit
+      &::before
+        background-image: svg-load('../images/pencil.svg', fill=$blueDark)
+        width: 18px
+        height: 18px
+      &:hover::before
+        background-image: svg-load('../images/pencil.svg', fill=$blueSaturated)
+    &--del
+      &::before
+        background-image: svg-load('../images/cross.svg', fill=$redDark)
+        width: 15px
+        height: 15px
+      &:hover::before
+        background-image: svg-load('../images/cross.svg', fill=$redSaturated)
+    &--save
+      &::before
+        width: 23px
+        height: 23px
+        background-image: svg-load('../images/save.svg', fill=$greenDark)
+      &:hover::before
+        background-image: svg-load('../images/save.svg', fill=$greenSaturated)
+    & + &
+      margin-left: 25px
+
+
+
+
+
+  &.is-green
+    .table__field:focus
+      border: 1px solid $greenDarken
+    .table__row
+      border-bottom: 1px solid $greenDarken
+      background-color: $yellow
+      &--top, &--bottom
+        background-color: $green
+
+  &.is-blue
+    .table__field:focus
+      border: 1px solid $blueDarken
+    .table__row
+      border-bottom: 1px solid $blueDarken
+      background-color: $blueLighten
+      &--top, &--bottom
+        background-color: $blue
+
+  &.is-red
+    .table__field:focus
+      border: 1px solid $redDarken
+    .table__row
+      border-bottom: 1px solid $redDarken
+      background-color: $redLighten
+      &--top, &--bottom
+        background-color: $red
+
+  &.is-violet
+    .table__field:focus
+      border: 1px solid $violetDarken
+    .table__row
+      border-bottom: 1px solid $violetDarken
+      background-color: $violetLighten
+      &--top, &--bottom
+        background-color: $violet
+
+  &.is-gray
+    .table__field:focus
+      border: 1px solid $grayDarken
+    .table__row
+      border-bottom: 1px solid $grayDarken
+      background-color: $grayLighten
+      &--top, &--bottom
+        background-color: $gray

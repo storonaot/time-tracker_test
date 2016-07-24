@@ -1,0 +1,121 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title Time Tracker
+    link(rel="stylesheet" href="./styles/main.css" type="text/css")
+  body
+    .wrapper
+      .wrapper__content
+        #app
+          my-tasks
+
+
+  template#tasks
+    div.color(v-if="tasks.length")
+      div.color__item.color__item--green(
+        v-on:click="getColor('green')"
+        v-bind:class="activeColor === 'green' ? 'is-active' : ''"
+      )
+      div.color__item.color__item--blue(
+        v-on:click="getColor('blue')"
+        v-bind:class="activeColor === 'blue' ? 'is-active' : ''"
+      )
+      div.color__item.color__item--red(
+        v-on:click="getColor('red')"
+        v-bind:class="activeColor === 'red' ? 'is-active' : ''"
+      )
+      div.color__item.color__item--violet(
+        v-on:click="getColor('violet')"
+        v-bind:class="activeColor === 'violet' ? 'is-active' : ''"
+      )
+      div.color__item.color__item--gray(
+        v-on:click="getColor('gray')"
+        v-bind:class="activeColor === 'gray' ? 'is-active' : ''"
+      )
+    //- pre {{ $data|json }}
+    .task
+      input.task__field(
+        v-model="task"
+        placeholder="Новая запись"
+      )
+      input.task__field.task__field--min(
+        v-model="rate"
+        placeholder="Ставка"
+      )
+      span.task__price руб/час
+      div.task__timer
+        span {{hours}}:
+        span {{minutes}}:
+        span {{seconds}}
+      div.task__button.task__button--start(
+        v-if="!running"
+        v-on:click="startTimer"
+        
+      )
+      div.task__button.task__button--stop(
+        v-else
+        v-on:click="stopTimer"
+        )
+    div(v-if="tasks.length")
+      table.table(v-bind:class="'is-' + activeColor")
+        tr.table__row.table__row--top
+          td.table__ceil(colspan="6") Название задачи
+          td.table__ceil.h-text-right(colspan="2") Ставка
+          td.table__ceil.h-text-right(colspan="2") Время 
+          td.table__ceil.h-text-right(colspan="2") Стоимость
+          td.table__ceil(colspan="2")
+        tr.table__row(v-for="task in tasks")
+          td.table__ceil(
+            colspan="6"
+            v-if="task.flag"
+          )
+            input.table__field(
+              value="{{ task.name }}"
+              v-model="task.name"
+            )
+          td.table__ceil(
+            colspan="6"
+            v-else
+          ) {{ task.name }}
+          td.table__ceil.h-text-right(
+            colspan="2"
+            v-if="task.flag"
+          ) 
+            input.table__field.table__field--min(
+              value="{{ task.rate }}"
+              v-model="task.rate"
+            )
+          td.table__ceil.h-text-right(
+            colspan="2"
+            v-else
+          ) {{ task.rate }} 
+            span.h-rouble i
+            span /час
+          td.table__ceil.h-text-right(colspan="2") {{ task.time }}
+          td.table__ceil.h-text-right(colspan="2") {{ task.total }} 
+            span.h-rouble i
+          td.table__ceil.h-text-center(colspan="2")
+            .table__control.table__control--save(
+              v-if="task.flag"
+              v-on:click="saveEditedTask($index)"
+            )
+            .h-flex(v-else)
+              .table__control.table__control--edit(
+                v-on:click="editTask($index)"
+              )
+              .table__control.table__control--del(
+                v-on:click="deleteTask($index)"
+              )
+        tr.table__row.table__row--bottom
+          td.table__ceil(colspan="6") 
+          td.table__ceil.h-text-right(colspan="2") Итого:
+          td.table__ceil.h-text-right(colspan="2") {{ spentTime }}
+          td.table__ceil.h-text-right(colspan="2") {{ earnedMoney }}&nbsp;
+            span.h-rouble i
+          td.table__ceil(colspan="2")
+          
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.js")
+  script(src="./javascripts/main.js")
+
+  

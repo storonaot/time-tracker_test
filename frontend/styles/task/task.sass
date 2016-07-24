@@ -1,0 +1,74 @@
+// background-image: svg-load('../images/start.svg', fill=#000)
+.task
+  display: flex
+  margin-bottom: 40px
+  height: 50px
+  align-items: center
+  justify-content: space-between
+  box-shadow: 0px 4px 8px 2px rgba(162, 162, 162, 0.55)
+  &__field
+    height: 100%
+    width: 100%
+    padding: 0 20px
+    font-size: 18px
+    font-weight: 300
+    &:focus
+      background-color: $gray
+    &--min
+      padding: 0 10px
+      width: 11%
+      font-size: 18px
+      text-align: right
+      &:focus
+        text-align: left
+  &__price
+    width: 11%
+    position: relative
+    top: 1px
+  &__timer
+    height: 100%
+    display: flex
+    align-items: center
+    font-size: 30px
+    width: 20%
+    padding: 0 20px
+  &__button
+    padding: 0 20px
+    width: 10%
+    text-align: center
+    height: 100%
+    display: flex
+    align-items: center
+    cursor: pointer
+    &::before
+      content: ''
+      display: inline-block
+      width: 30px
+      height: 30px
+      background-repeat: no-repeat
+      background-size: cover
+      cursor: pointer
+      position: relative
+    &--start
+      background-color: $greenDark
+      &:hover
+        background-color: $greenSaturated
+      &::before
+        left: 4px
+        background-image: svg-load('../images/start.svg', fill=#fff)
+    &--stop
+      background-color: $redDark
+      &:hover
+        background-color: $redSaturated
+      &::before
+        left: 2px
+        background-image: svg-load('../images/stop.svg', fill=#fff)
+
+
+
+
+// .task
+//
+// input1
+
+  .button
