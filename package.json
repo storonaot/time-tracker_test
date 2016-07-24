@@ -18,9 +18,20 @@
     "gulp-debug": "^2.1.2",
     "gulp-imagemin": "^3.0.1",
     "gulp-jade": "^1.1.0",
+    "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-postcss": "^6.1.1",
     "postcss-inline-svg": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storonaot/time-tracker_test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/storonaot/time-tracker_test/issues"
+  },
+  "homepage": "https://github.com/storonaot/time-tracker_test#readme",
+  "devDependencies": {
+    "vue": "^1.0.26"
   }
 }
