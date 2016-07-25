@@ -17,7 +17,9 @@ Vue.component('my-tasks', {
     }
   },
   ready() {
-    this.getLocalStorage()
+    if (localStorage.tasks) {
+      this.getLocalStorage()
+    }
     this.calcTotals()
     this.allToInactive()
   },

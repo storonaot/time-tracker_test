@@ -6,7 +6,8 @@ const sourcemaps = require('gulp-sourcemaps')
 const del = require('del')
 const debug = require('gulp-debug')
 const browserSync = require('browser-sync').create()
-const jade = require('gulp-jade')
+// const jade = require('gulp-jade')
+const pug = require('gulp-pug')
 const babel = require('gulp-babel')
 const concat = require('gulp-concat')
 const imagemin = require('gulp-imagemin')
@@ -33,7 +34,7 @@ gulp.task('styles:build', () => {
 gulp.task('html:build', () => {
   return gulp.src('frontend/**/*.jade')
     .pipe(debug({title: 'html'}))
-    .pipe(jade())
+    .pipe(pug())
     .pipe(gulp.dest('public'))
 })
 
