@@ -14,28 +14,22 @@ ____________________
   * Если node.js установлен:
     + Обновляем node.js через:
 
-      `$ nvm install stable`
+      `nvm install stable`
 
-      `$ nvm use stable`
+      `nvm use stable`
 
     +  Обновляем npm:
 
-      `$ npm install npm -g`
+      `npm install npm -g`
 
-3. Устанавливаем gulp глобально
+3. gulp v.4 глобально
 
-  `$ npm install --global gulp-cli`
+  `npm install --global gulp-cli`
 
-4. Устанавливаем gulp 4 локально из корневой директории проекта
+4. Зависимости
 
-  `$ npm init`
+  `npm install`
 
-  `$ npm install gulpjs/gulp.git#4.0 --save`
+5. Запуск
 
-5. Устанавливаем зависимости
-
-  `$ npm install`
-
-6. Запускаем проект
-
-  `$ gulp dev`
+  `gulp dev`
